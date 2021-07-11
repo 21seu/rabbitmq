@@ -9,3 +9,5 @@
 
 
 ### 1.2 MQ有哪些
+
+当今市面上有很多主流的消息中间件，如老牌的`ActiveMQ`、`RabbitMQ`，炙手可热的`Kafka`，阿里巴巴自主开发`RocketMQ`等。
