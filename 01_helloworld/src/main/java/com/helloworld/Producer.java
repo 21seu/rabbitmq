@@ -3,6 +3,7 @@ package com.helloworld;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.MessageProperties;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -37,11 +38,11 @@ public class Producer {
         //参数3：exclusive 是否独占队列 true 独占队列  false 不独占
         //参数4 autoDelete：是否在消费完成后自动删除队列 true 自动删除 false 不自动删除
         //参数5：额外附加参数
-        channel.queueDeclare("hello", false, false, false, null);
+        channel.queueDeclare("hello", true, false, false, null);
 
         //发布消息
         //参数1：交换机名称 参数2：队列名称  参数3：传递消息的额外设置  参数4：消息的具体内容
-        channel.basicPublish("", "hello", null, "hello rabbitmq".getBytes());
+        channel.basicPublish("", "hello", MessageProperties.PERSISTENT_TEXT_PLAIN, "hello rabbitmq".getBytes());
 
         //关闭通道
         channel.close();
