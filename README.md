@@ -29,3 +29,20 @@
 ### 2.1 RabbitMQ
 
 > 基于`AMQP`协议，erlang语言开发，是部署最广泛的开源消息中间件，是最受欢迎的消息中间件之一
+
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/12759906/1626623579399-55f017e6-37d8-4da7-8749-f2df26bc9058.png?x-oss-process=image%2Fresize%2Cw_2000)
+
+
+
+官网：[https://www.rabbitmq.com](https://www.rabbitmq.com/#features)
+
+官网教程：[rabbitmq.com/getstarted.html](http://rabbitmq.com/getstarted.html)
+
+
+
+> `AMQP`（Advanced Message Queuing Protocal）协议：在2003年时被提出，最早用于解决金融领不同平台之间的消息传递交互问题。顾名思义，AMQP是一种协议，更准确的说是一种binary wire-level protocol（链接协议）。这是其和JMS的本质差别，AMQP不从API层进行限定，而是直接定义网络交换的数据格式。这使得实现了AMQP的provider天然性就是跨平台的。以下是AMQP协议模型：
+
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/12759906/1626624594261-9a3b2f5b-95e8-4960-bde1-35962302fbce.png)
+
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/12759906/1626624567060-041bb36c-9a37-440b-927c-1a829ef93fe6.png)
+
