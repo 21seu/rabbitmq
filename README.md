@@ -53,3 +53,35 @@
 - **Exchange**：message到达broker的第一站，根据分发规则，匹配查询表中的routing key，分发消息到queue中去。常用的类型有：direct (point-to-point), topic (publish-subscribe) and fanout (multicast)
 - **Queue**：消息最终被送到这里等待consumer取走。一个message可以被同时拷贝到多个queue中。
 - **Binding**：exchange和queue之间的虚拟连接，binding中可以包含routing key。Binding信息被保存到exchange中的查询表中，用于message的分发依据。
+
+
+
+### 2.2 RabbitMQ安装
+
+
+
+## 3. RabbitMQ Tutorials
+
+
+
+### 3.1 AMQP协议
+
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/12759906/1626824973015-dcfe6d68-aca3-4eb5-a8bf-7b7454ace0d9.png)
+
+
+
+### 3.2 RabbitMQ支持的消息模型
+
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/12759906/1626825172717-e9b4ced6-ae63-49c9-847c-0e2e63c8fa86.png)
+
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/12759906/1626825191615-e7404adf-14a0-4e81-9e27-7202c8d75369.png)
+
+
+
+### 3.3 直连模式
+
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/12759906/1626825251221-20367fc5-8c4f-40fa-8e16-428788c9395b.png)
+
+- **P**：生产者
+- **C**：消费者
+- **queue**：消息队列，图中红色部分。类似一个邮箱，可以缓存消息；生产者向其中投递消息，消费者从其中取出消息。
