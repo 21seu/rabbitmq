@@ -12,6 +12,7 @@
         <module>01_helloworld</module>
         <module>02_work</module>
         <module>03_fanout</module>
+        <module>04_routing</module>
     </modules>
 
     <dependencies>

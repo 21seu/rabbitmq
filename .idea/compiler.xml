@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="04_routing" />
         <module name="01_helloworld" />
         <module name="03_fanout" />
         <module name="02_work" />
