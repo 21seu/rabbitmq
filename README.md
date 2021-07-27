@@ -160,3 +160,69 @@ public static void getMessage() throws IOException, TimeoutException {
     }
 ```
 
+
+
+### 3.4 work queue
+
+![image.png](https://cdn.nlark.com/yuque/0/2021/png/12759906/1627395465344-5e4cc5f0-716a-4abe-af38-0b96e292d02a.png)
+
+- P：生产者：任务的发布者
+- C1：消费者-1，领取任务并且完成任务，假设完成速度较慢
+- C2：消费者-2：领取任务并完成任务，假设完成速度快
+
+
+
+> 生产者
+
+```java
+public static void main(String[] args) throws IOException {
+        Connection connection = RabbitMQUtils.getConnection();
+        Channel channel = connection.createChannel();
+        channel.queueDeclare("work", true, false, false, null);
+        for (int i = 0; i < 10; i++) {
+            channel.basicPublish("", "work", null, (i + "---->hello work queue").getBytes());
+        }
+        RabbitMQUtils.closeConnectionAndChanel(connection, channel);
+    }
+```
+
+> 消费者1
+
+```java
+public static void main(String[] args) throws IOException{
+
+        Connection connection = RabbitMQUtils.getConnection();
+
+        Channel channel = connection.createChannel();
+
+        channel.queueDeclare("work",true,false,false,null);
+
+        channel.basicConsume("work",true,new DefaultConsumer(channel){
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                System.out.println("消费者-1："+new String(body));
+            }
+        });
+
+    }
+```
+
+> 消费者2
+
+```java
+public static void main(String[] args) throws IOException {
+
+        Connection connection = RabbitMQUtils.getConnection();
+
+        Channel channel = connection.createChannel();
+
+        channel.queueDeclare("work", true, false, false, null);
+
+        channel.basicConsume("work", true, new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                System.out.println("消费者-2：" + new String(body));
+            }
+        });
+    }
+```
