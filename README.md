@@ -160,6 +160,11 @@ public static void getMessage() throws IOException, TimeoutException {
     }
 ```
 
+> 参数说明：
+>
+> Queue.DeclareOk queueDeclare(String queue, boolean durable, boolean exclusive, boolean autoDelete,
+>                Map<String, Object> arguments) throws IOException;
+
 
 
 ### 3.4 work queue
