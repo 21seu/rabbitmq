@@ -231,3 +231,7 @@ public static void main(String[] args) throws IOException {
         });
     }
 ```
+
+
+
+### 3.5 fanout（广播）
